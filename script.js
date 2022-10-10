@@ -52,7 +52,11 @@ prevSlide.addEventListener("click", function () {
 // setTimeout(), 1000)
 
 setInterval(function() {
-  nextSlide(); 
+  if (curSlide === maxSlide) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
 }, 1000 );
 
 

@@ -213,7 +213,7 @@ nav .phone {
   background-color: #fff;
 }
 #services .item:nth-child(7) {
-  background-image: url("./images/supply-chain-impacts.jpg");
+  /* background-image: url("./images/supply-chain-impacts.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   /* color: #000; */
@@ -352,7 +352,7 @@ nav .phone {
     display: inline-block;
     padding: 0 10px;
   }
-
+/* 
   nav li a {
     color: #fff;
     border: 1px solid #37b6ff;
@@ -377,7 +377,7 @@ nav .phone {
   }
   nav li a:active{
     scale: 90px;
-  }
+  } */
   nav .phone {
     display: flex;
     align-items: center;
@@ -389,11 +389,11 @@ nav .phone {
   }
   #advantage h1 {
     font-size: 2.5rem;
-    text-align: left;
+    text-align: center;
   }
   #advantage .list .item {
-    align-items: flex-start;
-    text-align: left;
+    /* align-items: flex-start; */
+    text-align: center;
     padding-left: 0px;
   }
   /* ABOUT */
@@ -421,7 +421,7 @@ nav .phone {
 
   #services .item {
     align-items: center;
-    transform: translateX();
+    /* transform: translateX(); */
   }
   #services .item a {
     text-decoration: none;
@@ -431,6 +431,8 @@ nav .phone {
   .item p {
     text-align: center;
   }
+
+ 
 
   /* FOOTER */
   #footer .video {
@@ -491,4 +493,41 @@ nav .phone {
     top: 45%;
     right: 2%;
   }
+
+  .link{
+    color: #fff;
+    font-size: 16px;
+    margin: 0px 10px 0px 10px;
+    text-decoration: none;
+    position: relative;
+    bottom:8px;
+    
+  }
+      
+      .link:after{
+        bottom: -4px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        background: #37b6ff;
+        opacity: 0.6;
+        transition: width 0.3s ease 0s, opacity 0.3s ease 0s;
+        width: 0;
+      }
+      
+      
+      .link:hover:after{
+        width: 100%;
+        opacity: 0.9;
+        color:#37b6ff
+      }
+      
+      .link a{
+        color:#fff;
+      }
+      .link a:hover{
+        color: #37b6ff
+      }
 }
