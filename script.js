@@ -1,65 +1,120 @@
 const nav = document.querySelector("nav");
 const menuBtn = document.querySelector("#menu-btn");
-const carousel = document.getElementById("carousel")
+const navbtn = document.querySelector("nav.menu-open ul a")
 
-const slides = document.querySelectorAll(".slide");
+window.onload = function() {
 
-// loop through slides and set each slides translateX property to index * 100% 
-slides.forEach((slide, indx) => {
-  slide.style.transform = `translateX(${indx * 100}%)`;
-});
+  let slider = document.querySelector('#slider');
+  let move = document.querySelector('#move');
+  let moveLi = Array.from(document.querySelectorAll('#slider #move li'));
+  let forword = document.querySelector('#slider #forword');
+  let back = document.querySelector('#slider #back');
+  let counter = 1;
+  let time = 3000;
+  let line = document.querySelector('#slider #line');
+  let dots = document.querySelector('#slider #dots');
+  let dot;
 
-// select next slide button
-const nextSlide = document.querySelector(".btn-next");
+  for (i = 0; i < moveLi.length; i++) {
 
-// current slide counter
-let curSlide = 0;
-// maximum number of slides
-let maxSlide = slides.length - 1;
-
-// add event listener and navigation functionality
-nextSlide.addEventListener("click", function () {
-  // check if current slide is the last and reset current slide
-  if (curSlide === maxSlide) {
-    curSlide = 0;
-  } else {
-    curSlide++;
+      dot = document.createElement('li');
+      dots.appendChild(dot);
+      dot.value = i;
   }
 
-//   move slide by -100%
-  slides.forEach((slide, indx) => {
-    slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-  });
-});
-// select prev slide button
-const prevSlide = document.querySelector(".btn-prev");
+  dot = dots.getElementsByTagName('li');
 
-// add event listener and navigation functionality
-prevSlide.addEventListener("click", function () {
-  // check if current slide is the first and reset current slide to last
-  if (curSlide === 0) {
-    curSlide = maxSlide;
-  } else {
-    curSlide--
+  line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
+  dot[0].classList.add('active');
+
+  function moveUP() {
+
+      if (counter == moveLi.length) {
+
+          moveLi[0].style.marginLeft = '0%';
+          counter = 1;
+
+      } else if (counter >= 1) {
+
+          moveLi[0].style.marginLeft = '-' + counter * 100 + '%';
+          counter++;
+      } 
+
+      if (counter == 1) {
+
+          dot[moveLi.length - 1].classList.remove('active');
+          dot[0].classList.add('active');
+
+      } else if (counter > 1) {
+
+          dot[counter - 2].classList.remove('active');
+          dot[counter - 1].classList.add('active');
+
+      }
+
   }
 
-  //   move slide by 100%
-  slides.forEach((slide, indx) => {
-    slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-  });
-});
+  function moveDOWN() {
 
-// setTimeout(), 1000)
+      if (counter == 1) {
 
-setInterval(function() {
-  if (curSlide === maxSlide) {
-    curSlide = 0;
-  } else {
-    curSlide++;
+          moveLi[0].style.marginLeft = '-' + (moveLi.length - 1) * 100 + '%';
+          counter = moveLi.length;
+          dot[0].classList.remove('active');
+          dot[moveLi.length - 1].classList.add('active');
+
+      } else if (counter <= moveLi.length) {
+
+          counter = counter - 2;
+          moveLi[0].style.marginLeft = '-' + counter * 100 + '%';   
+          counter++;
+
+          dot[counter].classList.remove('active');
+          dot[counter - 1].classList.add('active');
+
+      }  
+
   }
-}, 1000 );
+
+  for (i = 0; i < dot.length; i++) {
+
+      dot[i].addEventListener('click', function(e) {
+
+          dot[counter - 1].classList.remove('active');
+          counter = e.target.value + 1;
+          dot[e.target.value].classList.add('active');
+          moveLi[0].style.marginLeft = '-' + (counter - 1) * 100 + '%';
+
+      });
+
+  }
+
+  forword.onclick = moveUP;
+  back.onclick = moveDOWN;
+
+  let autoPlay = setInterval(moveUP, time);
+
+  slider.onmouseover = function() {
+
+      autoPlay = clearInterval(autoPlay);
+      line.style.animation = '';
+
+  }
+
+  slider.onmouseout = function() {
+
+      autoPlay = setInterval(moveUP, time);
+      line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
+
+  }
+
+}
 
 
+
+// navbtn.onclick = function (){
+//     nav.classList.toggle("menu-open")
+// }
 
 menuBtn.onclick = function () {
   nav.classList.toggle("menu-open");
