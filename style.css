@@ -418,7 +418,7 @@ ul#move li:nth-child(5) {
   }
   #hero {
     flex-direction: row;
-    padding: 10px;
+    /* padding-left: 10px; */
   }
   #hero > * {
     flex: 1;
