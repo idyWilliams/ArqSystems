@@ -151,6 +151,9 @@ nav .phone {
 #about .details p {
   margin-bottom: 5px;
 }
+.about{
+  display: flex;
+  }
 
 #about .details a {
   text-decoration: none;
@@ -210,9 +213,11 @@ nav .phone {
 }
 #services .item:nth-child(3) {
   background-color: #0c344c;
+  
 }
 #services .item:nth-child(4) {
   background-color: #0c344c;
+
 }
 #services .item:nth-child(5) {
   background-color: #35b5fe;
@@ -527,8 +532,8 @@ h4{
   #about > * {
     flex: 1;
   }
-  #about figure {
-    /* height: auto; */
+  .about{
+  margin-top: 5px;
   }
 
   /* SERVICES */
@@ -557,6 +562,11 @@ h4{
     background-color: #0c344c;
     border-bottom: 0.1px solid gray;
   }
+  /* #services .item:nth-child(4) {
+    background-color: #0c344c;
+    display: block;  
+  } */
+ 
   .item p {
     text-align: center;
   }
