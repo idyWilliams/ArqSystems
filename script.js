@@ -4,6 +4,13 @@ const navbtn1 = document.querySelector("#show");
 const navbtn2 = document.querySelector("#show1");
 const navbtn3 = document.querySelector("#show2");
 const navbtn4 = document.querySelector("#show3");
+const flipCard1 = document.querySelector('.inner-1')
+const flipCard2 = document.querySelector('.inner-2')
+const flipCard3 = document.querySelector('.inner-3')
+const flipCard4 = document.querySelector('.inner-4')
+const flipCard5 = document.querySelector('.inner-5')
+const flipCard6 = document.querySelector('.inner-6')
+const flipCard7 = document.querySelector('.inner-7')
 
 window.onload = function () {
   let slider = document.querySelector("#slider");
@@ -22,7 +29,51 @@ window.onload = function () {
     dots.appendChild(dot);
     dot.value = i;
   }
+  
 
+  const flip1 = ()=>{
+    flipCard1.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+  const flip2 = ()=>{
+    flipCard2.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+  const flip3 = ()=>{
+    flipCard3.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+  const flip4 = ()=>{
+    flipCard4.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+  const flip5 = ()=>{
+    flipCard5.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+  const flip6 = ()=>{
+    flipCard6.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+  const flip7 = ()=>{
+    flipCard7.classList.toggle("is_flipped")
+    console.log("he;llo");
+  }
+   
+
+  flipCard1.addEventListener("click", flip1)
+  flipCard2.addEventListener("click", flip2)
+  flipCard3.addEventListener("click", flip3)
+  flipCard4.addEventListener("click", flip4)
+  flipCard5.addEventListener("click", flip5)
+  flipCard6.addEventListener("click", flip6)
+  flipCard7.addEventListener("click", flip7)
   dot = dots.getElementsByTagName("li");
 
   line.style.animation = "line " + time / 1000 + "s linear infinite";
