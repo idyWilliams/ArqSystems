@@ -308,7 +308,7 @@ nav .phone {
 }
 
 .back-2{
-  
+  color: #000;
 
 }
 .back-3{
@@ -525,6 +525,7 @@ ul#move li img {
   padding: 6px;
   padding-top: 6px;
    width: 28%;
+   height: 100%;
   border: none;
   cursor: pointer;
   background-color: #e58210;
@@ -541,6 +542,10 @@ h4 {
 
 .subscribe {
   margin-top: 20px;
+}
+
+.call{
+  text-decoration: none;
 }
 
 /* DESKTOP STYLE */
@@ -615,7 +620,9 @@ h4 {
   .about {
     margin-top: 5px;
   }
-
+  .inner.is_flipped{
+    transform: none;
+  }
   /* SERVICES */
 
   #services {
